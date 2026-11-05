@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star2IT Solutions — IT-konsulent i Kristiansand</title>
+<meta name="description" content="Star2IT Solutions leverer praktisk IT-konsulentbistand, utvikling og systemforvaltning. Fast månedlig støtte i tre nivåer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #05070d;
+  --surface: #0c101c;
+  --card: #12182b;
+  --border: #1c2640;
+  --accent: #3b82f6;
+  --accent-2: #60a5fa;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --green: #22c55e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,7,13,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1.4rem; letter-spacing: -0.6px;
+}
+.logo span { color: var(--accent-2); }
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+nav a:hover { color: #fff; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; padding: 10px 18px;
+  border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.92rem;
+  transition: .15s;
+}
+.btn:hover { background: #2563eb; }
+.btn-outline {
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+}
+.btn-outline:hover { border-color: var(--accent); background: rgba(59,130,246,0.08); }
+
+.hero {
+  padding: 110px 0 90px;
+  background: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(59,130,246,0.18), transparent 60%);
+  text-align: center;
+}
+.badge {
+  display: inline-block; background: rgba(59,130,246,0.12); color: var(--accent-2);
+  padding: 5px 12px; border-radius: 100px; font-size: 0.78rem; font-weight: 600;
+  margin-bottom: 18px; letter-spacing: 0.4px;
+}
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 700; line-height: 1.05; letter-spacing: -1.8px;
+  margin-bottom: 16px;
+}
+.hero p { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin: 0 auto 32px; }
+.hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+section { padding: 90px 0; }
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.1rem; font-weight: 700; margin-bottom: 10px; text-align: center;
+}
+.section-sub { color: var(--muted); text-align: center; margin-bottom: 48px; }
+
+.pricing { background: var(--surface); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.price-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 26px;
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.price-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.price-card .tag {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px;
+}
+.price-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+.price-desc { color: var(--muted); font-size: 0.88rem; margin-bottom: 18px; }
+.price { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; }
+.price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+.price-period { color: var(--muted); font-size: 0.8rem; margin-bottom: 22px; }
+.price-features { list-style: none; margin-bottom: 28px; flex-grow: 1; }
+.price-features li { font-size: 0.92rem; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.price-features li:before { content: "\2713 "; color: var(--green); font-weight: 700; }
+.price-card .btn { width: 100%; }
+
+.services .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+}
+.card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 0.92rem; }
+.icon { font-size: 1.4rem; margin-bottom: 12px; }
+
+.contact { background: var(--surface); }
+.contact-box {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 36px; max-width: 480px; margin: 0 auto;
+}
+.contact-item { margin-bottom: 16px; }
+.contact-item strong { display: block; font-size: 0.85rem; margin-bottom: 2px; }
+.contact-item a, .contact-item span { color: var(--muted); text-decoration: none; }
+.contact-item a:hover { color: var(--accent-2); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0; font-size: 0.82rem; color: var(--muted); text-align: center;
+}
+
+@media (max-width: 700px) {
+  nav ul { display: none; }
+  .hero { padding: 80px 0 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">Star<span>2</span>IT</div>
+    <ul>
+      <li><a href="#abonnement">Abonnement</a></li>
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="btn">Ta kontakt</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="badge">IT-konsulent · Kristiansand</div>
+    <h1>Star2IT Solutions</h1>
+    <p>Praktisk IT-støtte og utvikling. Fast månedlig tilgang, uten unødvendig kompleksitet.</p>
+    <div class="hero-cta">
+      <a href="#abonnement" class="btn">Se abonnement</a>
+      <a href="#kontakt" class="btn btn-outline">Kontakt oss</a>
+    </div>
+  </div>
+</header>
+
+<section class="pricing" id="abonnement">
+  <div class="container">
+    <h2 class="section-title">Abonnement</h2>
+    <p class="section-sub">Tre nivåer. Alle priser er eks. mva.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Basis</div>
+        <div class="price-desc">Lette spørsmål og enkel støtte</div>
+        <div class="price">2 900 <span>kr</span></div>
+        <div class="price-period">per måned</div>
+        <ul class="price-features">
+          <li>E-poststøtte</li>
+          <li>Svar innen 2 virkedager</li>
+          <li>Månedsrapport</li>
+          <li>Grunnleggende rådgivning</li>
+          <li>Enkelt og oversiktlig</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-outline">Velg Basis</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Premium</div>
+        <div class="price-desc">Regelmessig støtte og utvikling</div>
+        <div class="price">7 900 <span>kr</span></div>
+        <div class="price-period">per måned</div>
+        <ul class="price-features">
+          <li>E-post + chat</li>
+          <li>Svar innen 1 virkedag</li>
+          <li>Prioritert kø</li>
+          <li>Månedsrapport</li>
+          <li>Løpende forbedringer</li>
+        </ul>
+        <a href="#kontakt" class="btn">Velg Premium</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">VIP</div>
+        <div class="price-desc">Høy prioritet og tilpasset avtale</div>
+        <div class="price">19 000 <span>kr</span></div>
+        <div class="price-period">per måned</div>
+        <ul class="price-features">
+          <li>Dedikert kontakt</li>
+          <li>Prioritert støtte</li>
+          <li>Rask respons</li>
+          <li>Tilpasset behov</li>
+          <li>Langsiktig samarbeid</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-outline">Kontakt oss</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="tjenester">
+  <div class="container">
+    <h2 class="section-title">Tjenester</h2>
+    <p class="section-sub">Hva vi hjelper med.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>IT-konsulent</h3>
+        <p>Rådgivning, systemanalyse og teknisk sparring.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚙️</div>
+        <h3>Programvareutvikling</h3>
+        <p>Utvikling, vedlikehold og tilpassede løsninger.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Data & analyse</h3>
+        <p>Strukturering, rapportering og datastøtte.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>Systemforvaltning</h3>
+        <p>Drift og vedlikehold av IT-systemer.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Web & portaler</h3>
+        <p>Enkle web-løsninger og digitale flater.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔄</div>
+        <h3>Integrasjoner</h3>
+        <p>Kobling av systemer og automatisering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="container">
+    <h2 class="section-title">Kontakt</h2>
+    <p class="section-sub">Ta kontakt.</p>
+    <div class="contact-box">
+      <div class="contact-item">
+        <strong>E-post</strong>
+        <a href="mailto:solutions@star2it.no">solutions@star2it.no</a>
+      </div>
+      <div class="contact-item">
+        <strong>Telefon</strong>
+        <a href="tel:+4792568070">925 68 070</a> · <a href="tel:+4740324580">403 24 580</a>
+      </div>
+      <div class="contact-item">
+        <strong>Nett</strong>
+        <a href="https://star2it.no/solutions/">star2it.no/solutions</a>
+      </div>
+      <div class="contact-item">
+        <strong>Org.nr.</strong>
+        <span>937 861 567</span>
+      </div>
+      <div class="contact-item">
+        <strong>Postadresse</strong>
+        <span>Postboks 2524, 4678 Kristiansand S</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Star2IT Solutions · ELDAR HUSEINOV (org.nr. 937 861 567) · Kristiansand
+  </div>
+</footer>
+
+</body>
+</html>
